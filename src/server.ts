@@ -7,8 +7,8 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
   const port = process.env.PORT || 8082;
   app.use(bodyParser.json());
 
-  app.get("/filteredimage", async ( req, res) => {
-    let { image_url } = req.query;
+  app.get("/filteredimage", async (req:express.Request, res:express.Response) => {
+    const image_url : string = req.query.image_url;
 
     // 1. validate image_url
     if (!image_url) {
